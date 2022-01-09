@@ -37,11 +37,11 @@ export default async function get(
     
     const foundRef = db.collection('wallet').doc(body.userId);
     const found = await foundRef.get()
-
+    
     try {
       var returnData = {
-        publicKey: found['_fieldsProto']['publickKey']['stringValue'] || found['_fieldsProto']['publicKey']['stringValue'],
-        privateKey: found['_fieldsProto']['privateKey']['stringValue'],
+        publicKey: found['_fieldsProto']['publicKey']['stringValue'],
+        privateKey: JSON.parse(found['_fieldsProto']['privateKey']['stringValue']),
         userId: found['_fieldsProto']['userId']['stringValue'] || null
       }
     } catch (e) {

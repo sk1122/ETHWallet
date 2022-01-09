@@ -7,8 +7,9 @@ async function findAcc(userId) {
 			userId: userId
 		})
 	})
-	let json = await data.json()
 
+	let json = await data.json()
+	console.log(json)
 	return json
 } 
 

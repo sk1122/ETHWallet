@@ -36,12 +36,10 @@ export default async function create(
       res.status(400).send('Send Public & Private Key')
       return
     }
-    console.log(2)
   
     const foundRef = db.collection('wallet').doc(body.userId);
     const found = await foundRef.get()
 
-    console.log(found)
     try {
       if(!found.exists) {
         const wallet = await db.collection('wallet').doc(body.userId).set({
